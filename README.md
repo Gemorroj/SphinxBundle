@@ -38,6 +38,30 @@ $bridge->setSphinxResults($client->Query('Stéphane'));
 $pager = $bridge->getPager();
 $pager->setMaxPerPage($itemsPerPage);
 $pager->setCurrentPage($page);
+`````
+
+# Paging example with multiple queries
+
+````php
+<?php
+$itemsPerPage = 50;
+$page = 1;
+
+$client = $this->get('highco.sphinx.client');
+$client->SetLimits( ($page -1) * $itemsPerPage, $itemsPerPage);
+
+$bridge = $this->get('highco.sphinx.pager.white_october.doctrine_orm');
+$bridge->setRepositoryClass('HighcoUserBundle:User');
+$bridge->setPkColumn('id');
+
+$client->AddQuery('Stéphane', 'address_book');
+$client->AddQuery('Nikola', 'address_book');
+$bridge->setSphinxResults($client->RunQueries(), true);
+
+$pager = $bridge->getPager();
+$pager->setMaxPerPage($itemsPerPage);
+$pager->setCurrentPage($page);
+`````
 
 # Paging example /w discriminator attribute
 
