@@ -2,8 +2,6 @@
 
 namespace Highco\SphinxBundle\Client;
 
-require __DIR__."/../../../../../vendor/sphinx/sphinxapi.php";
-
 /**
  * DefaultClient
  *
@@ -17,7 +15,7 @@ class DefaultClient extends \SphinxClient
     public function __construct()
     {
         parent::__construct();
-        
+
         $this->SetArrayResult(true);
     }
 }
