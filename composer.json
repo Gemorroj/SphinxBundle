@@ -1,0 +1,33 @@
+{
+    "name": "highco/sphinx-bundle",
+    "description": "Sphinx search in Symfony",
+    "keywords": ["sphinx", "search", "symfony", "bundle"],
+    "type": "symfony-bundle",
+    "homepage": "https://github.com/BLEUROY-HIGHCO/SphinxBundle",
+    "license": "MIT",
+    "authors": [{
+        "name": "Jérémy Romey",
+        "email": "jeremy@free-agent.fr"
+    },{
+        "name": "Community contributors",
+        "homepage": "https://github.com/BLEUROY-HIGHCO/SphinxBundle/contributors"
+    }],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "2.*",
+        "neutron/sphinxsearch-api": "2.0.*"
+    },
+    "autoload":     {
+        "psr-0": { "Highco\\SphinxBundle": "" }
+    },
+    "target-dir": "Highco/SphinxBundle",
+    "minimum-stability": "dev",
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
