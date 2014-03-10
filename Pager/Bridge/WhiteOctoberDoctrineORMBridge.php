@@ -66,7 +66,7 @@ class WhiteOctoberDoctrineORMBridge extends AbstractSphinxPager implements Inter
     protected function getEntityManager()
     {
         if ($this->em === null) {
-            $this->em = $this->container->get('doctrine')->getEntityManager();
+            $this->em = $this->container->get('doctrine')->getManager();
         }
 
         return $this->em;
@@ -83,7 +83,7 @@ class WhiteOctoberDoctrineORMBridge extends AbstractSphinxPager implements Inter
      */
     public function setEntityManagerByName($name)
     {
-        return $this->setEntityManager($this->container->get('doctrine')->getEntityManager($name));
+        return $this->setEntityManager($this->container->get('doctrine')->getManager($name));
     }
 
     /**
@@ -328,7 +328,7 @@ class WhiteOctoberDoctrineORMBridge extends AbstractSphinxPager implements Inter
     {
         $discriminatorData = $this->discriminatorRepositories[$discriminatorValue];
 
-        $em = $this->container->get('doctrine')->getEntityManager($discriminatorData['em']);
+        $em = $this->container->get('doctrine')->getManager($discriminatorData['em']);
         /* @var $em EntityManager */
 
         $qb = $em->createQueryBuilder();
