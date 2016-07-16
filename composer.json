@@ -14,20 +14,10 @@
     }],
     "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle": "2.*",
+        "symfony/framework-bundle": "~2.3|~3.0",
         "neutron/sphinxsearch-api": "2.0.*"
     },
-    "autoload":     {
-        "psr-0": { "Highco\\SphinxBundle": "" }
-    },
-    "target-dir": "Highco/SphinxBundle",
-    "minimum-stability": "dev",
-    "config": {
-        "bin-dir": "bin"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
+    "autoload": {
+        "psr-4": { "Highco\\SphinxBundle\\": "" }
     }
 }
