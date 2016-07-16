@@ -24,7 +24,9 @@
         "doctrine/orm": "Doctrine"
     },
     "autoload": {
-        "psr-4": { "Highco\\SphinxBundle\\": "" },
+        "psr-4": {
+            "Highco\\SphinxBundle\\": "src"
+        },
         "classmap": ["sphinxapi.php"]
     }
 }
