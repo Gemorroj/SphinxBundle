@@ -12,7 +12,7 @@
         "name": "Gemorroj"
     }],
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.5.9",
         "symfony/framework-bundle": "^3.0"
     },
     "require-dev": {

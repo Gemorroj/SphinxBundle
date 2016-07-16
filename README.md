@@ -1,11 +1,30 @@
 HighcoSphinxBundle
 ==================
 
-This bundle use sphinx php api, you have to include on *dir*/vendor/sphinx/sphinxapi.php your version of sphinxapi which is on package found on http://sphinxsearch.com/downloads/
+This bundle use sphinx php api, you have to include on *dir*/sphinxapi.php your version of sphinxapi which is on package found on http://sphinxsearch.com/downloads/
 
-# Simple example:
 
-````php
+### Installation:
+
+- Add to composer.json:
+
+```json
+{
+    "require": {
+        "gemorroj/sphinx-bundle": "dev-master"
+    }
+}
+```
+
+### Requirements:
+
+- PHP >= 5.5.9
+- Symfony >= 3.0
+
+
+### Simple example:
+
+```php
 <?php
 $client = $this->get('highco.sphinx.client');
 
@@ -17,12 +36,12 @@ $bridge->setPkColumn('id');
 $bridge->setSphinxResults($client->Query('Stéphane'));
 
 $pager = $bridge->getPager();
-`````
+```
 
 
-# Paging example
+### Paging example
 
-````php
+```php
 <?php
 $itemsPerPage = 50;
 $page = 1;
@@ -38,11 +57,11 @@ $bridge->setSphinxResults($client->Query('Stéphane'));
 $pager = $bridge->getPager();
 $pager->setMaxPerPage($itemsPerPage);
 $pager->setCurrentPage($page);
-`````
+```
 
-# Paging example with multiple queries
+### Paging example with multiple queries
 
-````php
+```php
 <?php
 $itemsPerPage = 50;
 $page = 1;
@@ -61,10 +80,12 @@ $bridge->setSphinxResults($client->RunQueries(), true);
 $pager = $bridge->getPager();
 $pager->setMaxPerPage($itemsPerPage);
 $pager->setCurrentPage($page);
-`````
+```
 
-# Paging example /w discriminator attribute
+### Paging example /w discriminator attribute
 
+```php
+<?php
 $itemsPerPage = 50;
 $page = 1;
 
@@ -101,9 +122,9 @@ $bridge->setSphinxResults($client->Query('Stéphane'));
 $pager = $bridge->getPager();
 $pager->setMaxPerPage($itemsPerPage);
 $pager->setCurrentPage($page);
-````
+```
 
-# Todo
+### Todo
 
 - Watch for coding conventions, I....should be ....Interface, line should be wrapped, etc...
 - Let user can modify client options on config.yml
@@ -111,6 +132,6 @@ $pager->setCurrentPage($page);
 
 - Looking for doctrine FIELD extension, to be able to pass a DoctrineORMAdapter at PagerFanta !
 
-# Whishlist
+### Whishlist
 
 - Provide other pager bridge
