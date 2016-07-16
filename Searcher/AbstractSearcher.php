@@ -4,6 +4,8 @@ namespace Highco\SphinxBundle\Searcher;
 
 abstract class AbstractSearcher implements InterfaceSearcher
 {
+    protected $client;
+    protected $bridge;
     protected $offset = 0;
     protected $limit  = 10;
     protected $query;
@@ -43,7 +45,7 @@ abstract class AbstractSearcher implements InterfaceSearcher
     /**
      * getAllFields
      *
-     * @return void
+     * @return array
      */
     public function getAllFields()
     {

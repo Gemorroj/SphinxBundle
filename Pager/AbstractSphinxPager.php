@@ -2,7 +2,8 @@
 
 namespace Highco\SphinxBundle\Pager;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
 /**
  * AbstractSphinxPager
@@ -12,12 +13,14 @@ use Symfony\Component\DependencyInjection\ContainerAware;
  * @author Stephane PY <py.stephane1@gmail.com>
  * @author Nikola Petkanski <nikola@petkanski.com>
  */
-abstract class AbstractSphinxPager extends ContainerAware
+abstract class AbstractSphinxPager implements ContainerAwareInterface
 {
+    use ContainerAwareTrait;
+
     /**
      * _extractPksFromResults
      *
-     * @return rray
+     * @return array
      */
     protected function _extractPksFromResults()
     {

@@ -2,7 +2,6 @@
 
 namespace Highco\SphinxBundle\Pager\Bridge;
 
-use Highco\SphinxBundle\Pager\Bridge\PagerFantaAdapter\SphinxAdapter;
 use Pagerfanta\Pagerfanta;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\QueryBuilder;
@@ -56,7 +55,7 @@ class WhiteOctoberDoctrineORMBridge extends AbstractSphinxPager implements Inter
 
     /**
      *
-     * @var Discriminator dependant repositories
+     * @var array Discriminator dependant repositories
      */
     protected $discriminatorRepositories = array();
 
@@ -89,7 +88,7 @@ class WhiteOctoberDoctrineORMBridge extends AbstractSphinxPager implements Inter
     /**
      * Sets the exact instance of entity manager which should be used to transform Sphinx results to entities.
      *
-     * @param EntityManager $name
+     * @param EntityManager $em
      *
      * @return WhiteOctoberDoctrineORMBridge
      */
@@ -240,7 +239,7 @@ class WhiteOctoberDoctrineORMBridge extends AbstractSphinxPager implements Inter
 
     /**
      *
-     * @return type
+     * @return array
      * @throws \UnexpectedValueException
      */
     protected function getDiscriminatorResults()
@@ -280,12 +279,10 @@ class WhiteOctoberDoctrineORMBridge extends AbstractSphinxPager implements Inter
          */
         foreach ($usedDiscriminators as $discriminatorValue => $discriminatorResults) {
             $qb = $this->getDiscriminatorQuery($discriminatorValue);
-            /* @var $qb \Doctrine\DBAL\Query\QueryBuilder */
 
             $primaryKeys = array_keys($discriminatorResults);
 
             $query = $qb->where($qb->expr()->in('r.'.$this->pkColumn, $primaryKeys))->getQuery();
-            /* @var $query \Doctrine\ORM\Query */
 
             foreach ($query->execute() as $id => $entity) {
                 $results[$id] = $entity;
@@ -332,7 +329,6 @@ class WhiteOctoberDoctrineORMBridge extends AbstractSphinxPager implements Inter
         /* @var $em EntityManager */
 
         $qb = $em->createQueryBuilder();
-        /* @var $qb \Doctrine\DBAL\Query\QueryBuilder */
 
         $repositoryClass = $discriminatorData['class'];
 
@@ -345,16 +341,16 @@ class WhiteOctoberDoctrineORMBridge extends AbstractSphinxPager implements Inter
     public function getDefaultQuery()
     {
         $qb = $this->getEntityManager()->createQueryBuilder();
-        /* @var $qb \Doctrine\DBAL\Query\QueryBuilder */
 
         return $qb->select('r') ->from($this->repositoryClass, sprintf('r INDEX BY r.%s', $this->pkColumn));
 
     }
 
     /**
-     * @param QueryBuilder $query
+     * @param QueryBuilder|null $query
+     * @return WhiteOctoberDoctrineORMBridge
      */
-    public function setQuery($query)
+    public function setQuery(QueryBuilder $query = null)
     {
         $this->query = $query;
 

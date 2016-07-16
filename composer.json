@@ -14,10 +14,18 @@
     }],
     "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle": "~2.3|~3.0",
-        "neutron/sphinxsearch-api": "2.0.*"
+        "symfony/framework-bundle": "^3.0"
+    },
+    "require-dev": {
+        "white-october/pagerfanta-bundle": "^1.0",
+        "doctrine/orm": "^2.5"
+    },
+    "suggests": {
+        "white-october/pagerfanta-bundle": "Pagerfanta",
+        "doctrine/orm": "Doctrine"
     },
     "autoload": {
-        "psr-4": { "Highco\\SphinxBundle\\": "" }
+        "psr-4": { "Highco\\SphinxBundle\\": "" },
+        "classmap": ["sphinxapi.php"]
     }
 }
