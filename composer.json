@@ -19,7 +19,7 @@
         "white-october/pagerfanta-bundle": "^1.0",
         "doctrine/orm": "^2.5"
     },
-    "suggests": {
+    "suggest": {
         "white-october/pagerfanta-bundle": "Pagerfanta",
         "doctrine/orm": "Doctrine"
     },
