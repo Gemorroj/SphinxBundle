@@ -1,16 +1,15 @@
 {
-    "name": "highco/sphinx-bundle",
+    "name": "gemorroj/sphinx-bundle",
     "description": "Sphinx search in Symfony",
     "keywords": ["sphinx", "search", "symfony", "bundle"],
     "type": "symfony-bundle",
-    "homepage": "https://github.com/BLEUROY-HIGHCO/SphinxBundle",
+    "homepage": "https://github.com/Gemorroj/SphinxBundle",
     "license": "MIT",
     "authors": [{
         "name": "Jérémy Romey",
         "email": "jeremy@free-agent.fr"
     },{
-        "name": "Community contributors",
-        "homepage": "https://github.com/BLEUROY-HIGHCO/SphinxBundle/contributors"
+        "name": "Gemorroj"
     }],
     "require": {
         "php": ">=5.3.3",
